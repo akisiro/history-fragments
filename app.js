@@ -1,7 +1,7 @@
 const $ = id => document.getElementById(id);
 const year = n => n < 0 ? `前 ${-n}` : `${n}`;
 function matches(e,q,from,to,region){
- const text=[e.title,e.place,e.modern,e.aliases,e.summary,e.date,...e.people].join(' ').normalize('NFKC').toLowerCase();
+ const text=[e.title,e.place,e.modern,e.aliases,e.summary,e.date,e.source,e.type,...e.people].join(' ').normalize('NFKC').toLowerCase();
  const terms=q.normalize('NFKC').trim().toLowerCase().split(/\s+/).filter(Boolean);
  return terms.every(term=>text.includes(term)||(/^[-+]?\d{1,4}$/.test(term)&&Number(term)!==0&&Number(term)>=e.start&&Number(term)<=e.end))&&e.start<=to&&e.end>=from&&(!region||e.region===region);
 }
@@ -41,3 +41,5 @@ document.addEventListener('click',e=>{const target=e.target.closest('[data-id]')
 $('markers').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.target.closest('[data-id]')?.dispatchEvent(new MouseEvent('click',{bubbles:true}))}});
 $('about').onclick=$('about2').onclick=()=>$('method').showModal();$('close').onclick=()=>$('method').close();filter();
 }
+
+
