@@ -10,3 +10,8 @@ assert(!matches(events.find(e=>e.id==='qin'),'',1,1800,''));
 assert(!events.some(e=>matches(e,'不存在的线索',-Infinity,Infinity,'')));
 assert(!matches(events[0],'',-Infinity,Infinity,'欧洲'));
 console.log('PASS: 8 records; BCE, interval overlap, uncertainty envelope, aliases, people, region and empty search.');
+
+assert(matches(events.find(e=>e.id==='declaration'),'1776',-Infinity,Infinity,''));
+assert(matches(events.find(e=>e.id==='gutenberg'),'1455',-Infinity,Infinity,''));
+assert(matches(events.find(e=>e.id==='qin'),'秦始皇 中国',-Infinity,Infinity,''));
+assert(!matches(events.find(e=>e.id==='cook'),'库克',1401,1500,''));
