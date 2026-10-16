@@ -26,3 +26,4 @@ https://github.com/aourednik/historical-basemaps 。原始文件路径见 `manif
 为减少网络传输，部署文件使用 gzip 压缩（`.json.gz` 与 `land.geojson.gz`）；解压后的内容为可编辑 GeoJSON，许可与原始数据一致。浏览器采用 DecompressionStream 解压；需要支持该标准的现代浏览器。
 
 为减少网络传输，部署文件使用 gzip 压缩（`.json.gz` 与 `land.geojson.gz`）；解压后的内容为可编辑 GeoJSON，许可与原始数据一致。浏览器采用 DecompressionStream 解压；需要支持该标准的现代浏览器。
+
