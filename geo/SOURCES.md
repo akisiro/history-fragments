@@ -24,3 +24,5 @@ https://github.com/aourednik/historical-basemaps 。原始文件路径见 `manif
 `vendor/d3.v7.min.js` 为 D3 7.8.5，来自官方仓库 d3/d3.github.com。许可见 vendor/D3-LICENSE.txt。浏览器仅处理本地地图数据；远程事件和坐标检索仍来自已标示的维基百科/Wikidata。
 
 为减少网络传输，部署文件使用 gzip 压缩（`.json.gz` 与 `land.geojson.gz`）；解压后的内容为可编辑 GeoJSON，许可与原始数据一致。浏览器采用 DecompressionStream 解压；需要支持该标准的现代浏览器。
+
+为减少网络传输，部署文件使用 gzip 压缩（`.json.gz` 与 `land.geojson.gz`）；解压后的内容为可编辑 GeoJSON，许可与原始数据一致。浏览器采用 DecompressionStream 解压；需要支持该标准的现代浏览器。
