@@ -19,9 +19,6 @@ function searchFeedback(){
  if(limits.length){const clear=document.createElement('button');clear.type='button';clear.textContent='清除年份和地区限制';clear.onclick=()=>{$('from').value='';$('to').value='';$('region').value='';filter()};feedback.append(clear)}
 }
 const project=(lon,lat)=>[(lon+180)/360*1000,(90-lat)/180*500];
-// Original coarse continent outlines: illustrative geography, no borders.
-const outlines=[ [[-168,70],[-140,72],[-125,60],[-115,52],[-125,45],[-120,33],[-105,22],[-96,18],[-87,15],[-82,9],[-77,9],[-83,20],[-80,25],[-81,32],[-70,45],[-58,50],[-62,60],[-85,68],[-110,72]], [[-73,59],[-45,59],[-20,75],[-40,83],[-60,79]], [[-81,12],[-65,9],[-50,1],[-35,-7],[-40,-23],[-52,-35],[-66,-55],[-74,-47],[-74,-20],[-80,-3]], [[-10,36],[-10,44],[-4,49],[9,55],[6,60],[20,71],[30,70],[30,60],[45,65],[60,70],[100,77],[145,70],[178,65],[165,55],[142,48],[138,37],[125,25],[120,10],[108,0],[100,8],[98,20],[85,22],[78,7],[70,24],[55,26],[45,13],[35,31],[28,40],[15,37]], [[-17,35],[10,37],[32,31],[43,12],[51,12],[42,-10],[33,-27],[18,-35],[12,-20],[8,-3],[-6,5],[-16,15]], [[113,-22],[122,-14],[135,-12],[142,-10],[154,-25],[151,-36],[136,-38],[115,-34]], [[47,-13],[51,-16],[49,-25],[44,-25]], [[130,32],[140,42],[144,44],[142,35]], [[166,-35],[175,-40],[171,-47],[165,-45]] ];
-$('land').innerHTML=outlines.map(poly=>`<polygon points="${poly.map(([lon,lat])=>project(lon,lat).join(',')).join(' ')}"/>`).join('');
 function render(){
 $('count').textContent=`${visible.length} / ${events.length} 条精选事件`;
 $('results').innerHTML=visible.length?visible.map(e=>`<button class="event-card ${e.id===selected?'active':''}" data-id="${e.id}" aria-pressed="${e.id===selected}"><small>${e.date} · ${e.precision}</small><strong>${e.title}</strong><span class="meta">${e.region} / ${e.place}　↗</span></button>`).join(''):'<p class="empty">没有匹配的精选记录。试试扩大年份范围或重置筛选；这不代表该时期没有历史事件。</p>';
